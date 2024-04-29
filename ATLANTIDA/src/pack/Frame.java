@@ -21,14 +21,16 @@ public class Frame extends JFrame{
 	public void init() {
 		
 		int num_test = 1000;
-		JLabel label = new JLabel();
+		JLabel labelbg = new JLabel();
 		JLabel Count_label = new JLabel();
-		JLabel baseimg = new JLabel();
+		JLabel labelbase = new JLabel();
+		JLabel labelr = new JLabel();
 		ImageIcon bg = new ImageIcon("darkrain.jpg");
 		ImageIcon base = new ImageIcon("Abase.png");
+		ImageIcon resources = new ImageIcon("resources.png");
 
-	    label.setIcon(bg);
-	    label.setBounds(0,0,800,800);
+	    labelbg.setIcon(bg);
+	    labelbg.setBounds(0,0,800,800);
 	    
 		Count_label.setText(String.valueOf(num_test));
 	    Count_label.setForeground(Color.WHITE);
@@ -37,22 +39,29 @@ public class Frame extends JFrame{
 	    Count_label.setHorizontalAlignment(JLabel.RIGHT);
 		Count_label.setBounds(0,0,780,780);
 
-	    Image modifiedbaseimg = base.getImage().getScaledInstance(450, 400, java.awt.Image.SCALE_SMOOTH);
-	    base = new ImageIcon(modifiedbaseimg);
-	    baseimg.setIcon(base);
-	    baseimg.setBounds(0,150,500,500);
+	    Image modifiedbaseimg1 = base.getImage().getScaledInstance(450, 400, java.awt.Image.SCALE_SMOOTH);
+	    base = new ImageIcon(modifiedbaseimg1);
+	    labelbase.setIcon(base);
+	    labelbase.setBounds(0,150,500,500);
         
+	    Image modifiedbaseimg2 = resources.getImage().getScaledInstance(550, 380, java.awt.Image.SCALE_SMOOTH);
+	    resources = new ImageIcon(modifiedbaseimg2);
+	    labelr.setIcon(resources);
+	    labelr.setBounds(360,1,500,500);
+	    
 	    //The Window
 		this.setTitle("ATLANTIDA 0.1-test");
 		this.setSize(800,800);
 		this.setResizable(false);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.add(Count_label);
-        this.add(baseimg);
-        this.add(label);
+        this.add(labelr);
+		this.add(labelbase);
+        this.add(labelbg);
 	    this.setLayout(null);
 	    this.setVisible(true);
 		
 	}
 }
+
 
