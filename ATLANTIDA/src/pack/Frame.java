@@ -3,21 +3,20 @@ package pack;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
-import java.awt.LayoutManager;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.OverlayLayout;
-import javax.swing.SwingConstants;
+
 
 public class Frame extends JFrame{
-public boolean yes = false;
+
+	public boolean yes = false;
 	static int num_test = 1000;
 	JLabel Count_label;
+	
 	public Frame() {
 		init();
 		
@@ -65,8 +64,6 @@ public boolean yes = false;
         this.add(labelbg);
 	    this.setLayout(null);
 	    this.setVisible(true);
-		
-	    
 	    
 	}
 
@@ -74,13 +71,29 @@ public boolean yes = false;
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			
+			int i = 0;
 			yes = true;
-			if (yes = true) {
-				resources(); 
-				}
 			
+			if (yes = true) {
 		
+				while(i<=10) {
+				
+					try {
+						Thread.sleep(20);
+						resources();
+						i+=1;
+					
+				
+					} catch (InterruptedException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					
+					
+				}
+				
+				
+			}
 		}
 
 		@Override
@@ -114,5 +127,6 @@ public boolean yes = false;
 		Count_label.setText(String.valueOf(num_test));
 	}
 	
-}
 
+	
+}
