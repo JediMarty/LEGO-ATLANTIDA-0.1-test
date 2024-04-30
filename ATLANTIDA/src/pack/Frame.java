@@ -4,6 +4,9 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.LayoutManager;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -12,17 +15,18 @@ import javax.swing.OverlayLayout;
 import javax.swing.SwingConstants;
 
 public class Frame extends JFrame{
-
-	
+public boolean yes = false;
+	static int num_test = 1000;
+	JLabel Count_label;
 	public Frame() {
 		init();
+		
 	}
 	
 	public void init() {
 		
-		int num_test = 1000;
 		JLabel labelbg = new JLabel();
-		JLabel Count_label = new JLabel();
+		Count_label = new JLabel();
 		JLabel labelbase = new JLabel();
 		JLabel labelr = new JLabel();
 		ImageIcon bg = new ImageIcon("darkrain.jpg");
@@ -48,6 +52,7 @@ public class Frame extends JFrame{
 	    resources = new ImageIcon(modifiedbaseimg2);
 	    labelr.setIcon(resources);
 	    labelr.setBounds(360,1,500,500);
+	    labelr.addMouseListener(click_r);
 	    
 	    //The Window
 		this.setTitle("ATLANTIDA 0.1-test");
@@ -61,7 +66,53 @@ public class Frame extends JFrame{
 	    this.setLayout(null);
 	    this.setVisible(true);
 		
+	    
+	    
 	}
-}
 
+	MouseListener click_r = new MouseListener() {
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			
+			yes = true;
+			if (yes = true) {
+				resources(); 
+				}
+			
+		
+		}
+
+		@Override
+		public void mousePressed(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseExited(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	};
+	public void resources() {
+		
+		num_test +=10;
+		Count_label.setText(String.valueOf(num_test));
+	}
+	
+}
 
