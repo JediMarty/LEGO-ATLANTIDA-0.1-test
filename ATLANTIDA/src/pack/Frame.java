@@ -7,7 +7,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -69,14 +68,17 @@ public class Frame extends JFrame{
 	    this.setVisible(true);
 	    
 	}
-Timer timer; int i=0;
+    
+	Timer timer; 
+	int resource = 3;
+	int i=0;
 	MouseListener click_r = new MouseListener() {
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			
 			yes = true;
-			if (yes = true) {
+			if (yes = true && resource > 0) {
 			timer = new Timer(1000, new ActionListener() {
 				
 
@@ -98,6 +100,7 @@ Timer timer; int i=0;
 				
 			}
 			i = 0;
+			resource-=1;
 		}
 
 		@Override
@@ -134,3 +137,4 @@ Timer timer; int i=0;
 
 	
 }
+
