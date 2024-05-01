@@ -3,12 +3,15 @@ package pack;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.Timer;
 
 
 public class Frame extends JFrame{
@@ -66,34 +69,35 @@ public class Frame extends JFrame{
 	    this.setVisible(true);
 	    
 	}
-
+Timer timer; int i=0;
 	MouseListener click_r = new MouseListener() {
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			int i = 0;
-			yes = true;
 			
+			yes = true;
 			if (yes = true) {
-		
-				while(i<=10) {
+			timer = new Timer(1000, new ActionListener() {
 				
-					try {
-						Thread.sleep(20);
-						resources();
-						i+=1;
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
 					
-				
-					} catch (InterruptedException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
+					i++;
+					if (i<=10) {
+						resources();
+					} else {
+						timer.stop();
 					}
 					
-					
 				}
-				
+			});
+			
+		
+				timer.start();
 				
 			}
+			i = 0;
 		}
 
 		@Override
