@@ -1,6 +1,9 @@
 package pack;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -10,6 +13,7 @@ import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.Timer;
 
 
@@ -30,11 +34,14 @@ public class Frame extends JFrame{
 		Count_label = new JLabel();
 		JLabel labelbase = new JLabel();
 		JLabel labelr = new JLabel();
+		JLabel labelu = new JLabel();
+		JPanel panel = new JPanel();
 		ImageIcon bg = new ImageIcon("darkrain.jpg");
 		ImageIcon base = new ImageIcon("Abase.png");
 		ImageIcon resources = new ImageIcon("resources.png");
-
-	    labelbg.setIcon(bg);
+		ImageIcon units = new ImageIcon("Asub.png");
+	    
+		labelbg.setIcon(bg);
 	    labelbg.setBounds(0,0,800,800);
 	    
 		Count_label.setText(String.valueOf(num_test));
@@ -54,17 +61,30 @@ public class Frame extends JFrame{
 	    labelr.setIcon(resources);
 	    labelr.setBounds(360,1,500,500);
 	    labelr.addMouseListener(click_r);
+	
+	    panel.setBackground(Color.BLUE);
+	    //panel.setLayout(new FlowLayout(FlowLayout.LEFT));
+	    panel.setLayout(new BorderLayout());
+	    panel.setPreferredSize(new Dimension(100,120));
+	    Image modifiedbaseimg3 = units.getImage().getScaledInstance(200, 200, java.awt.Image.SCALE_SMOOTH);
+	    units = new ImageIcon(modifiedbaseimg3);
+	    labelu.setIcon(units);
+
+	    panel.add(labelu);
+	    
 	    
 	    //The Window
 		this.setTitle("ATLANTIDA 0.1-test");
 		this.setSize(800,800);
 		this.setResizable(false);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);    
+		this.add(panel,BorderLayout.SOUTH);
 		this.add(Count_label);
         this.add(labelr);
 		this.add(labelbase);
         this.add(labelbg);
-	    this.setLayout(null);
+	    //this.setLayout(null);
+        
 	    this.setVisible(true);
 	    
 	}
@@ -137,4 +157,3 @@ public class Frame extends JFrame{
 
 	
 }
-
