@@ -35,12 +35,18 @@ public class Frame extends JFrame{
 		JLabel labelbase = new JLabel();
 		JLabel labelr = new JLabel();
 		JLabel labelu = new JLabel();
+		JLabel labelp = new JLabel();
+		JLabel labelock1 = new JLabel();
+		JLabel labelock2 = new JLabel();
 		JPanel panel = new JPanel();
 		ImageIcon bg = new ImageIcon("darkrain.jpg");
 		ImageIcon base = new ImageIcon("Abase.png");
 		ImageIcon resources = new ImageIcon("resources.png");
 		ImageIcon units = new ImageIcon("Asub.png");
-	    
+		ImageIcon lockedbuilding1 = new ImageIcon("lock.png");
+		ImageIcon lockedbuilding2 = new ImageIcon("lock.png");
+		ImageIcon lockedbuilding3 = new ImageIcon("lock.png");
+		
 		labelbg.setIcon(bg);
 	    labelbg.setBounds(0,0,800,800);
 	    
@@ -63,16 +69,23 @@ public class Frame extends JFrame{
 	    labelr.addMouseListener(click_r);
 	
 	    panel.setBackground(Color.BLUE);
-	    //panel.setLayout(new FlowLayout(FlowLayout.LEFT));
-	    panel.setLayout(new BorderLayout());
-	    panel.setPreferredSize(new Dimension(100,120));
+	    panel.setLayout(new FlowLayout(FlowLayout.LEFT));
+	    //panel.setLayout(new BorderLayout());
+	    panel.setPreferredSize(new Dimension(100,160));
 	    Image modifiedbaseimg3 = units.getImage().getScaledInstance(200, 200, java.awt.Image.SCALE_SMOOTH);
 	    units = new ImageIcon(modifiedbaseimg3);
 	    labelu.setIcon(units);
-
-	    panel.add(labelu);
 	    
-	    
+	    labelp.setIcon(lockedbuilding1);
+	    labelock1.setIcon(lockedbuilding2);
+	    labelock2.setIcon(lockedbuilding3);
+	 
+        
+        panel.add(labelu);
+        panel.add(labelp);    
+	    panel.add(labelock1);
+	    panel.add(labelock2);
+        
 	    //The Window
 		this.setTitle("ATLANTIDA 0.1-test");
 		this.setSize(800,800);
