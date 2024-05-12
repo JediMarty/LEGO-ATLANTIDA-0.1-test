@@ -26,6 +26,7 @@ public class Frame extends JFrame{
 	static int num_test = 1000;
 	JLabel Count_label;
 	JLabel labelr;
+	JPanel panel;
 	
 	public Frame() {
 		init();
@@ -42,7 +43,7 @@ public class Frame extends JFrame{
 		JLabel labelp = new JLabel();
 		JLabel labelock1 = new JLabel();
 		JLabel labelock2 = new JLabel();
-		JPanel panel = new JPanel();
+		panel = new JPanel();
 		ImageIcon bg = new ImageIcon("darkrain.jpg");
 		ImageIcon base = new ImageIcon("Abase.png");
 		ImageIcon resources = new ImageIcon("resources.png");
@@ -65,7 +66,8 @@ public class Frame extends JFrame{
 	    base = new ImageIcon(modifiedbaseimg1);
 	    labelbase.setIcon(base);
 	    labelbase.setBounds(0,150,500,500);
-        
+        labelbase.addMouseListener(click_b);
+	    
 	    Image modifiedbaseimg2 = resources.getImage().getScaledInstance(550, 380, java.awt.Image.SCALE_SMOOTH);
 	    resources = new ImageIcon(modifiedbaseimg2);
 	    labelr.setIcon(resources);
@@ -92,7 +94,9 @@ public class Frame extends JFrame{
 	    panel.add(labelock1);
 	    panel.add(Box.createHorizontalStrut(70));
 	    panel.add(labelock2);
-
+	    panel.setVisible(false);
+	    panel.addMouseListener(click_b);
+	    
 	    //The Window
 		this.setTitle("ATLANTIDA 0.1-test");
 		this.setSize(800,800);
@@ -168,6 +172,41 @@ public class Frame extends JFrame{
 		}
 		
 	};
+	
+	MouseListener click_b = new MouseListener() {
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			panel.setVisible(true);
+			
+		}
+
+		@Override
+		public void mousePressed(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseExited(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+	
+	};
+	
 	public void resources() {
 		
 		num_test +=10;
