@@ -2,6 +2,7 @@ package pack;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -10,6 +11,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+
+import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -22,6 +25,7 @@ public class Frame extends JFrame{
 	public boolean yes = false;
 	static int num_test = 1000;
 	JLabel Count_label;
+	JLabel labelr;
 	
 	public Frame() {
 		init();
@@ -33,7 +37,7 @@ public class Frame extends JFrame{
 		JLabel labelbg = new JLabel();
 		Count_label = new JLabel();
 		JLabel labelbase = new JLabel();
-		JLabel labelr = new JLabel();
+		labelr = new JLabel();
 		JLabel labelu = new JLabel();
 		JLabel labelp = new JLabel();
 		JLabel labelock1 = new JLabel();
@@ -55,7 +59,7 @@ public class Frame extends JFrame{
 	    Count_label.setFont(new Font("MV Boli",Font.BOLD,30));
 	    Count_label.setVerticalAlignment(JLabel.TOP);
 	    Count_label.setHorizontalAlignment(JLabel.RIGHT);
-		Count_label.setBounds(0,0,780,780);
+		Count_label.setBounds(0,0,780,180);
 
 	    Image modifiedbaseimg1 = base.getImage().getScaledInstance(450, 400, java.awt.Image.SCALE_SMOOTH);
 	    base = new ImageIcon(modifiedbaseimg1);
@@ -80,12 +84,15 @@ public class Frame extends JFrame{
 	    labelock1.setIcon(lockedbuilding2);
 	    labelock2.setIcon(lockedbuilding3);
 	 
-        
+   
         panel.add(labelu);
+        panel.add(Box.createHorizontalStrut(70));
         panel.add(labelp);    
+        panel.add(Box.createHorizontalStrut(70));
 	    panel.add(labelock1);
+	    panel.add(Box.createHorizontalStrut(70));
 	    panel.add(labelock2);
-        
+
 	    //The Window
 		this.setTitle("ATLANTIDA 0.1-test");
 		this.setSize(800,800);
@@ -150,8 +157,8 @@ public class Frame extends JFrame{
 
 		@Override
 		public void mouseEntered(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
+			// TODO Auto-generated method stub 
+			labelr.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		}
 
 		@Override
