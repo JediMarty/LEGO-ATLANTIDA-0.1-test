@@ -1,6 +1,7 @@
 package pack;
 
 import java.awt.BorderLayout;
+import java.awt.Button;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
@@ -14,6 +15,7 @@ import java.awt.event.MouseListener;
 
 import javax.swing.Box;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -27,7 +29,7 @@ public class Frame extends JFrame{
 	JLabel Count_label;
 	JLabel labelr;
 	JPanel panel;
-	
+	JLabel labelbase;
 	public Frame() {
 		init();
 		
@@ -37,7 +39,7 @@ public class Frame extends JFrame{
 		
 		JLabel labelbg = new JLabel();
 		Count_label = new JLabel();
-		JLabel labelbase = new JLabel();
+		labelbase = new JLabel();
 		labelr = new JLabel();
 		JLabel labelu = new JLabel();
 		JLabel labelp = new JLabel();
@@ -64,10 +66,18 @@ public class Frame extends JFrame{
 
 	    Image modifiedbaseimg1 = base.getImage().getScaledInstance(450, 400, java.awt.Image.SCALE_SMOOTH);
 	    base = new ImageIcon(modifiedbaseimg1);
-	    labelbase.setIcon(base);
-	    labelbase.setBounds(0,150,500,500);
-        labelbase.addMouseListener(click_b);
+	    //labelbase.setIcon(base);
+	    //labelbase.setBounds(0,150,500,500);
+        //labelbase.addMouseListener(click_b);
 	    
+        JButton b = new JButton(base);
+		b.setBounds(0,150,450,400);
+		b.setBorderPainted(false);
+		b.setContentAreaFilled(false);
+		b.setFocusPainted(false);
+		b.setOpaque(false);
+        b.addMouseListener(click_b);
+		
 	    Image modifiedbaseimg2 = resources.getImage().getScaledInstance(550, 380, java.awt.Image.SCALE_SMOOTH);
 	    resources = new ImageIcon(modifiedbaseimg2);
 	    labelr.setIcon(resources);
@@ -105,7 +115,7 @@ public class Frame extends JFrame{
 		this.add(panel,BorderLayout.SOUTH);
 		this.add(Count_label);
         this.add(labelr);
-		this.add(labelbase);
+		this.add(b);
         this.add(labelbg);
 	    //this.setLayout(null);
         
@@ -195,7 +205,7 @@ public class Frame extends JFrame{
 
 		@Override
 		public void mouseEntered(MouseEvent e) {
-			// TODO Auto-generated method stub
+			labelbase.setCursor(new Cursor(Cursor.HAND_CURSOR));
 			
 		}
 
@@ -216,3 +226,4 @@ public class Frame extends JFrame{
 
 	
 }
+
