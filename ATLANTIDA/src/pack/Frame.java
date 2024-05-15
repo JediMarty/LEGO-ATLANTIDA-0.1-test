@@ -27,7 +27,8 @@ public class Frame extends JFrame{
 	public boolean yes = false;
 	static int num_test = 1000;
 	JLabel Count_label;
-	JLabel labelr;
+	JButton bbase;
+	JButton br;
 	JPanel panel;
 	JLabel labelbase;
 	public Frame() {
@@ -39,8 +40,6 @@ public class Frame extends JFrame{
 		
 		JLabel labelbg = new JLabel();
 		Count_label = new JLabel();
-		labelbase = new JLabel();
-		labelr = new JLabel();
 		JLabel labelu = new JLabel();
 		JLabel labelp = new JLabel();
 		JLabel labelock1 = new JLabel();
@@ -70,20 +69,24 @@ public class Frame extends JFrame{
 	    //labelbase.setBounds(0,150,500,500);
         //labelbase.addMouseListener(click_b);
 	    
-        JButton b = new JButton(base);
-		b.setBounds(0,150,450,400);
-		b.setBorderPainted(false);
-		b.setContentAreaFilled(false);
-		b.setFocusPainted(false);
-		b.setOpaque(false);
-        b.addMouseListener(click_b);
+        bbase = new JButton(base);
+        bbase.setBounds(50,250,200,250);
+        bbase.setBorderPainted(false);
+        bbase.setContentAreaFilled(false);
+        bbase.setFocusPainted(false);
+        bbase.setOpaque(false);
+        bbase.addMouseListener(click_b);
 		
 	    Image modifiedbaseimg2 = resources.getImage().getScaledInstance(550, 380, java.awt.Image.SCALE_SMOOTH);
 	    resources = new ImageIcon(modifiedbaseimg2);
-	    labelr.setIcon(resources);
-	    labelr.setBounds(360,1,500,500);
-	    labelr.addMouseListener(click_r);
-	
+	    br = new JButton(resources);
+	    br.setBounds(500,90,270,170);
+	    br.setBorderPainted(false);
+	    br.setContentAreaFilled(false);
+	    br.setFocusPainted(false);
+	    br.setOpaque(false);
+	    br.addMouseListener(click_r);
+	    
 	    panel.setBackground(Color.BLUE);
 	    panel.setLayout(new FlowLayout(FlowLayout.LEFT));
 	    //panel.setLayout(new BorderLayout());
@@ -114,8 +117,8 @@ public class Frame extends JFrame{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);    
 		this.add(panel,BorderLayout.SOUTH);
 		this.add(Count_label);
-        this.add(labelr);
-		this.add(b);
+        this.add(br);
+		this.add(bbase);
         this.add(labelbg);
 	    //this.setLayout(null);
         
@@ -172,7 +175,7 @@ public class Frame extends JFrame{
 		@Override
 		public void mouseEntered(MouseEvent e) {
 			// TODO Auto-generated method stub 
-			labelr.setCursor(new Cursor(Cursor.HAND_CURSOR));
+			br.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		}
 
 		@Override
@@ -205,7 +208,7 @@ public class Frame extends JFrame{
 
 		@Override
 		public void mouseEntered(MouseEvent e) {
-			labelbase.setCursor(new Cursor(Cursor.HAND_CURSOR));
+			bbase.setCursor(new Cursor(Cursor.HAND_CURSOR));
 			
 		}
 
