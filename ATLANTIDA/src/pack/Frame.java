@@ -30,7 +30,7 @@ public class Frame extends JFrame{
 	JButton bbase;
 	JButton br;
 	JPanel panel;
-	JLabel labelbase;
+	JButton ex;
 	public Frame() {
 		init();
 		
@@ -49,6 +49,7 @@ public class Frame extends JFrame{
 		ImageIcon base = new ImageIcon("Abase.png");
 		ImageIcon resources = new ImageIcon("resources.png");
 		ImageIcon units = new ImageIcon("Asub.png");
+		ImageIcon explore = new ImageIcon("expl.png");
 		ImageIcon lockedbuilding1 = new ImageIcon("lock.png");
 		ImageIcon lockedbuilding2 = new ImageIcon("lock.png");
 		ImageIcon lockedbuilding3 = new ImageIcon("lock.png");
@@ -65,10 +66,6 @@ public class Frame extends JFrame{
 
 	    Image modifiedbaseimg1 = base.getImage().getScaledInstance(450, 400, java.awt.Image.SCALE_SMOOTH);
 	    base = new ImageIcon(modifiedbaseimg1);
-	    //labelbase.setIcon(base);
-	    //labelbase.setBounds(0,150,500,500);
-        //labelbase.addMouseListener(click_b);
-	    
         bbase = new JButton(base);
         bbase.setBounds(50,250,200,250);
         bbase.setBorderPainted(false);
@@ -99,7 +96,6 @@ public class Frame extends JFrame{
 	    labelock1.setIcon(lockedbuilding2);
 	    labelock2.setIcon(lockedbuilding3);
 	 
-   
         panel.add(labelu);
         panel.add(Box.createHorizontalStrut(70));
         panel.add(labelp);    
@@ -110,11 +106,20 @@ public class Frame extends JFrame{
 	    panel.setVisible(false);
 	    panel.addMouseListener(click_b);
 	    
+	    ex = new JButton(explore);
+	    ex.setBounds(700, 680, 80, 80);
+	    ex.setBorderPainted(false);
+	    ex.setContentAreaFilled(false);
+	    ex.setFocusPainted(false);
+	    ex.setOpaque(false);
+	    ex.addMouseListener(click_expl);
+	    
 	    //The Window
 		this.setTitle("ATLANTIDA 0.1-test");
 		this.setSize(800,800);
 		this.setResizable(false);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);    
+		this.add(ex);
 		this.add(panel,BorderLayout.SOUTH);
 		this.add(Count_label);
         this.add(br);
@@ -220,6 +225,40 @@ public class Frame extends JFrame{
 	
 	};
 	
+	MouseListener click_expl = new MouseListener() {
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mousePressed(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			ex.setCursor(new Cursor(Cursor.HAND_CURSOR));
+			
+		}
+
+		@Override
+		public void mouseExited(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	};
+	
 	public void resources() {
 		
 		num_test +=10;
@@ -229,4 +268,3 @@ public class Frame extends JFrame{
 
 	
 }
-
