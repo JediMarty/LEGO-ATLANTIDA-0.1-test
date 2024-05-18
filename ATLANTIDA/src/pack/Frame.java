@@ -30,6 +30,7 @@ public class Frame extends JFrame{
 	JButton bbase;
 	JButton br;
 	JPanel panel;
+	JButton exp;
 	JButton ex;
 	public Frame() {
 		init();
@@ -50,6 +51,7 @@ public class Frame extends JFrame{
 		ImageIcon resources = new ImageIcon("resources.png");
 		ImageIcon units = new ImageIcon("Asub.png");
 		ImageIcon explore = new ImageIcon("expl.png");
+		ImageIcon exit = new ImageIcon("exit.png");
 		ImageIcon lockedbuilding1 = new ImageIcon("lock.png");
 		ImageIcon lockedbuilding2 = new ImageIcon("lock.png");
 		ImageIcon lockedbuilding3 = new ImageIcon("lock.png");
@@ -106,19 +108,30 @@ public class Frame extends JFrame{
 	    panel.setVisible(false);
 	    panel.addMouseListener(click_b);
 	    
-	    ex = new JButton(explore);
+	    exp = new JButton(explore);
+	    exp.setBounds(700, 680, 80, 80);
+	    exp.setBorderPainted(false);
+	    exp.setContentAreaFilled(false);
+	    exp.setFocusPainted(false);
+	    exp.setOpaque(false);
+	    exp.addMouseListener(click_expl);
+	    
+	    
+	    ex = new JButton(exit);
 	    ex.setBounds(700, 680, 80, 80);
 	    ex.setBorderPainted(false);
 	    ex.setContentAreaFilled(false);
 	    ex.setFocusPainted(false);
 	    ex.setOpaque(false);
-	    ex.addMouseListener(click_expl);
+	    ex.addMouseListener(click_exit);
+	    ex.setVisible(false);
 	    
 	    //The Window
 		this.setTitle("ATLANTIDA 0.1-test");
 		this.setSize(800,800);
 		this.setResizable(false);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);    
+		this.add(exp);
 		this.add(ex);
 		this.add(panel,BorderLayout.SOUTH);
 		this.add(Count_label);
@@ -196,6 +209,8 @@ public class Frame extends JFrame{
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			panel.setVisible(true);
+			exp.setVisible(false);
+			ex.setVisible(true);
 			
 		}
 
@@ -247,6 +262,40 @@ public class Frame extends JFrame{
 
 		@Override
 		public void mouseEntered(MouseEvent e) {
+			exp.setCursor(new Cursor(Cursor.HAND_CURSOR));
+			
+		}
+
+		@Override
+		public void mouseExited(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	};
+	
+	MouseListener click_exit = new MouseListener() {
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			panel.setVisible(false);
+			
+		}
+
+		@Override
+		public void mousePressed(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent e) {
 			ex.setCursor(new Cursor(Cursor.HAND_CURSOR));
 			
 		}
@@ -268,3 +317,4 @@ public class Frame extends JFrame{
 
 	
 }
+
