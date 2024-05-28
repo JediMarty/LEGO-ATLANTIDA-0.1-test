@@ -24,6 +24,7 @@ import javax.swing.Timer;
 
 public class Frame extends JFrame{
 
+	public static boolean x = false;
 	public boolean yes = false;
 	static int num_test = 1000;
 	JLabel Count_label;
@@ -244,7 +245,7 @@ public class Frame extends JFrame{
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			// TODO Auto-generated method stub
+			x=true;
 			
 		}
 
