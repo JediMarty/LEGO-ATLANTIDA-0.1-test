@@ -1,11 +1,8 @@
 package pack;
 
-import java.awt.BorderLayout;
-import java.awt.Button;
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -22,9 +19,12 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 
-public class Frame extends JFrame{
-
-	public static boolean x = false;
+public class Frame{
+	
+	JPanel gamepanel1 = new JPanel();
+	JPanel gamepanel2 = new JPanel();
+	JPanel cardPanel = new JPanel(new CardLayout());
+	public static JFrame frame = new JFrame();
 	public boolean yes = false;
 	static int num_test = 1000;
 	JLabel Count_label;
@@ -51,7 +51,7 @@ public class Frame extends JFrame{
 		ImageIcon base = new ImageIcon("Abase.png");
 		ImageIcon resources = new ImageIcon("resources.png");
 		ImageIcon units = new ImageIcon("Asub.png");
-		ImageIcon explore = new ImageIcon("expl.png");
+		ImageIcon explored = new ImageIcon("expl.png");
 		ImageIcon exit = new ImageIcon("exit.png");
 		ImageIcon lockedbuilding1 = new ImageIcon("lock.png");
 		ImageIcon lockedbuilding2 = new ImageIcon("lock.png");
@@ -88,9 +88,10 @@ public class Frame extends JFrame{
 	    br.addMouseListener(click_r);
 	    
 	    panel.setBackground(Color.BLUE);
-	    panel.setLayout(new FlowLayout(FlowLayout.LEFT));
+	    panel.setBounds(0,600,800,160);
+	    //panel.setLayout(new FlowLayout(FlowLayout.LEFT));
 	    //panel.setLayout(new BorderLayout());
-	    panel.setPreferredSize(new Dimension(100,160));
+	    //panel.setPreferredSize(new Dimension(100,160));
 	    Image modifiedbaseimg3 = units.getImage().getScaledInstance(200, 200, java.awt.Image.SCALE_SMOOTH);
 	    units = new ImageIcon(modifiedbaseimg3);
 	    labelu.setIcon(units);
@@ -107,9 +108,9 @@ public class Frame extends JFrame{
 	    panel.add(Box.createHorizontalStrut(70));
 	    panel.add(labelock2);
 	    panel.setVisible(false);
-	    panel.addMouseListener(click_b);
 	    
-	    exp = new JButton(explore);
+	    
+	    exp = new JButton(explored);
 	    exp.setBounds(700, 680, 80, 80);
 	    exp.setBorderPainted(false);
 	    exp.setContentAreaFilled(false);
@@ -127,21 +128,37 @@ public class Frame extends JFrame{
 	    ex.addMouseListener(click_exit);
 	    ex.setVisible(false);
 	    
+	    //first set of components
+	   
+	    gamepanel1.add(exp);
+	    gamepanel1.add(ex);
+	    gamepanel1.add(panel);
+	    gamepanel1.add(Count_label);
+	    gamepanel1.add(br);
+	    gamepanel1.add(bbase);
+	    gamepanel1.add(labelbg);
+	    gamepanel1.setLayout(null);
+	    
+	    //Add first set of components
+	    cardPanel.add(gamepanel1);
+
+	    //second set of components
+	    gamepanel2.add(explore.lb);
+	    
+	    //Add second set of components
+	    cardPanel.add(gamepanel2);
+	    
 	    //The Window
-		this.setTitle("ATLANTIDA 0.1-test");
-		this.setSize(800,800);
-		this.setResizable(false);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);    
-		this.add(exp);
-		this.add(ex);
-		this.add(panel,BorderLayout.SOUTH);
-		this.add(Count_label);
-        this.add(br);
-		this.add(bbase);
-        this.add(labelbg);
-	    //this.setLayout(null);
+	    frame.setTitle("ATLANTIDA 0.1-test");
+	    frame.setSize(800,800);
+		frame.setResizable(false);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);    
+		cardPanel.setBounds(0,0,800,800);
+		frame.add(cardPanel);
+	
+		frame.setLayout(null);
         
-	    this.setVisible(true);
+        frame .setVisible(true);
 	    
 	}
     
@@ -245,7 +262,8 @@ public class Frame extends JFrame{
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			x=true;
+			CardLayout cl = (CardLayout) (cardPanel.getLayout());
+			cl.next(cardPanel);
 			
 		}
 
@@ -280,7 +298,8 @@ public class Frame extends JFrame{
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			panel.setVisible(false);
-			
+			exp.setVisible(true);
+			ex.setVisible(false);
 		}
 
 		@Override
@@ -318,4 +337,3 @@ public class Frame extends JFrame{
 
 	
 }
-
