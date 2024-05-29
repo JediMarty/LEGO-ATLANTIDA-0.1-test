@@ -10,13 +10,10 @@ public class Main{
 
 	    Menu.framemenu.dispose();
 	
-     while(Frame.x != true) {
+   
     	 
     	 new Frame();
-	    	
-     }
-		Frame.frame.dispose();
-		new explore();
+    	 
 	}
 
 }
