@@ -16,11 +16,13 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.Timer;
 
 
 public class Frame{
 	
+	public static ImageIcon bg = new ImageIcon("darkrain.jpg");
 	JPanel gamepanel1 = new JPanel();
 	JPanel gamepanel2 = new JPanel();
 	JPanel cardPanel = new JPanel(new CardLayout());
@@ -47,7 +49,7 @@ public class Frame{
 		JLabel labelock1 = new JLabel();
 		JLabel labelock2 = new JLabel();
 		panel = new JPanel();
-		ImageIcon bg = new ImageIcon("darkrain.jpg");
+		
 		ImageIcon base = new ImageIcon("Abase.png");
 		ImageIcon resources = new ImageIcon("resources.png");
 		ImageIcon units = new ImageIcon("Asub.png");
@@ -129,7 +131,6 @@ public class Frame{
 	    ex.setVisible(false);
 	    
 	    //first set of components
-	   
 	    gamepanel1.add(exp);
 	    gamepanel1.add(ex);
 	    gamepanel1.add(panel);
@@ -141,9 +142,16 @@ public class Frame{
 	    
 	    //Add first set of components
 	    cardPanel.add(gamepanel1);
-
-	    //second set of components
-	    gamepanel2.add(explore.lb);
+	    
+	    //second set of components 
+	    explore d = new explore();
+	    gamepanel2.add(explore.unitlb);
+	    gamepanel2.add(explore.monsterlb);
+	    gamepanel2.add(explore.bg);
+	    gamepanel2.setLayout(null); 
+	    explore.unitlb.setBounds(350, 10, 420, 400);
+	    explore.bg.setBounds(0, 0, 800, 800);
+	    explore.monsterlb.setBounds(10, 410, 500, 400);
 	    
 	    //Add second set of components
 	    cardPanel.add(gamepanel2);
@@ -337,3 +345,5 @@ public class Frame{
 
 	
 }
+
+
