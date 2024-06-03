@@ -2,9 +2,11 @@ package pack;
 
 
 import java.awt.Color;
-
+import java.util.Random;
+import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+
 
 public class explore {
 	
@@ -14,6 +16,7 @@ public class explore {
 
 	public explore() {
 		init2();
+		
 	}
 	
 	public void init2() {
@@ -35,6 +38,18 @@ public class explore {
 		monsterlb.setOpaque(true);
 
 	}
+	
+public static void action() {
+		
+		int num = (int) (Math.random() * 9 + 1);
+		
+		if(num >5) {
+			showMessageDialog(null, "You win");
+		}
+		
+		else {
+			showMessageDialog(null, "You lost");
+		}
+	}
 
 }
-
