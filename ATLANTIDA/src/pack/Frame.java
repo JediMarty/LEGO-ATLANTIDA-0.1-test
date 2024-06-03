@@ -272,7 +272,8 @@ public class Frame{
 		public void mouseClicked(MouseEvent e) {
 			CardLayout cl = (CardLayout) (cardPanel.getLayout());
 			cl.next(cardPanel);
-			
+			explore.action();
+			cl.next(cardPanel);
 		}
 
 		@Override
