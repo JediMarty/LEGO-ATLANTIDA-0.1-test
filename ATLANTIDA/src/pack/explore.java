@@ -1,19 +1,23 @@
 package pack;
 
-
 import java.awt.Color;
-import java.util.Random;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 
 
-public class explore {
+public class explore implements ActionListener{
 	
 	public static JLabel bg;
 	public static JLabel unitlb;
     public static JLabel monsterlb;	
     static ImageIcon img2 = new ImageIcon("monster1.png");
+    public static JButton buttonhit;
+    
 	public explore() {
 		init2();
 		
@@ -37,6 +41,10 @@ public class explore {
 		monsterlb.setBackground(Color.DARK_GRAY);
 		monsterlb.setOpaque(true);
 
+		
+		buttonhit = new JButton("Hit");
+		buttonhit.addActionListener(this);
+		
 	}
 	
 	public static void action() {
@@ -59,6 +67,12 @@ public class explore {
 		else {
 			showMessageDialog(null, "other, not completed yet....");
 		}
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		action();
+		
 	}
 
 }
