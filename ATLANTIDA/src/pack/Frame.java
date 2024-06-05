@@ -145,6 +145,7 @@ public class Frame{
 	    
 	    //second set of components 
 	    explore d = new explore();
+	    gamepanel2.add(explore.buttonhit);
 	    gamepanel2.add(explore.unitlb);
 	    gamepanel2.add(explore.monsterlb);
 	    gamepanel2.add(explore.bg);
@@ -152,6 +153,7 @@ public class Frame{
 	    explore.unitlb.setBounds(350, 10, 420, 400);
 	    explore.bg.setBounds(0, 0, 800, 800);
 	    explore.monsterlb.setBounds(10, 410, 500, 400);
+	    explore.buttonhit.setBounds(60, 100, 100, 50);
 	    
 	    //Add second set of components
 	    cardPanel.add(gamepanel2);
@@ -272,8 +274,7 @@ public class Frame{
 		public void mouseClicked(MouseEvent e) {
 			CardLayout cl = (CardLayout) (cardPanel.getLayout());
 			cl.next(cardPanel);
-			explore.action();
-			cl.next(cardPanel);
+			
 		}
 
 		@Override
