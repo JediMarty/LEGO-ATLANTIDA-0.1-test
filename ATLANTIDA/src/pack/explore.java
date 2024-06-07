@@ -3,7 +3,6 @@ package pack;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -15,7 +14,9 @@ public class explore implements ActionListener{
 	public static JLabel bg;
 	public static JLabel unitlb;
     public static JLabel monsterlb;	
-    static ImageIcon img2 = new ImageIcon("monster1.png");
+    static ImageIcon imgm1 = new ImageIcon("monster1.png");
+    static ImageIcon imgm2 = new ImageIcon("monster1.png");
+    static ImageIcon imgm3 = new ImageIcon("monster1.png");
     public static JButton buttonhit;
     
 	public explore() {
@@ -47,13 +48,15 @@ public class explore implements ActionListener{
 		
 	}
 	
-	public static void action() {
-		//this method performs the different situations in the game!
-		int num1 = (int) (Math.random() * 9 + 1);
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		//the different situations in the game!
+		
+        int num1 = (int) (Math.random() * 9 + 1);
 		int num2 = (int) (Math.random() * 9 + 1);
 		
-		if(num1 == 5 || num1 == 6) {
-			monsterlb.setIcon(img2);
+		if(num1 == 1 || num1 == 2 || num1 ==3) {
+			
 			if(num2 >5) {
 				showMessageDialog(null, "You destroy the sea monster, congratulations!");
 			}
@@ -64,16 +67,33 @@ public class explore implements ActionListener{
 			
 		}
 		
+		else if (num1 == 5 || num1 == 6){
+			monsterlb.setIcon(imgm2);
+			if(num2 >5) {
+				showMessageDialog(null, "You destroy the sea monster, congratulations!");
+			}
+			
+			else {
+			showMessageDialog(null, "The sea monster destroy you, you lost!");
+			}
+		}
+		
+		else if (num1 == 4) {
+			if(num2 >5) {
+				showMessageDialog(null, "You destroy the sea monster, congratulations!");
+			}
+			
+			else {
+			showMessageDialog(null, "The sea monster destroy you, you lost!");
+			}
+		}
+		
 		else {
 			showMessageDialog(null, "other, not completed yet....");
 		}
+		
 	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		action();
 		
 	}
 
-}
 
