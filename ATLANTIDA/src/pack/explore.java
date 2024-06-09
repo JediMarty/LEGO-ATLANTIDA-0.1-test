@@ -47,6 +47,18 @@ public class explore implements ActionListener{
 		buttonhit.addActionListener(this);
 		
 	}
+
+       public static void showMonster() {
+		
+		List <ImageIcon> list = new ArrayList<>();
+		int random = (int) (Math.random() * 3);
+		
+		list.add(imgm1);
+		list.add(imgm2);
+		list.add(imgm3);
+		
+		monsterlb.setIcon(list.get(random));
+	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
