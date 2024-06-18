@@ -3,6 +3,9 @@ package pack;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
+
 import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -15,8 +18,8 @@ public class explore implements ActionListener{
 	public static JLabel unitlb;
     public static JLabel monsterlb;	
     static ImageIcon imgm1 = new ImageIcon("monster1.png");
-    static ImageIcon imgm2 = new ImageIcon("monster1.png");
-    static ImageIcon imgm3 = new ImageIcon("monster1.png");
+    static ImageIcon imgm2 = new ImageIcon("monster2.png");
+    static ImageIcon imgm3 = new ImageIcon("monster3.png");
     public static JButton buttonhit;
     
 	public explore() {
@@ -47,8 +50,8 @@ public class explore implements ActionListener{
 		buttonhit.addActionListener(this);
 		
 	}
-
-       public static void showMonster() {
+	
+	public static void showMonster() {
 		
 		List <ImageIcon> list = new ArrayList<>();
 		int random = (int) (Math.random() * 3);
@@ -64,12 +67,11 @@ public class explore implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		//the different situations in the game!
 		
-        int num1 = (int) (Math.random() * 9 + 1);
-		int num2 = (int) (Math.random() * 9 + 1);
+        int num = (int) (Math.random() * 9 + 1);
 		
-		if(num1 == 1 || num1 == 2 || num1 ==3) {
+		if(monsterlb.getIcon() == imgm1) {
 			
-			if(num2 >5) {
+			if(num > 5) {
 				showMessageDialog(null, "You destroy the sea monster, congratulations!");
 			}
 			
@@ -79,10 +81,10 @@ public class explore implements ActionListener{
 			
 		}
 		
-		else if (num1 == 5 || num1 == 6){
-			monsterlb.setIcon(imgm2);
-			if(num2 >5) {
-				showMessageDialog(null, "You destroy the sea monster, congratulations!");
+		else if (monsterlb.getIcon() == imgm2){
+			
+			if(num > 3) {
+				showMessageDialog(null, "You destroy the Manta Warrior, congratulations!");
 			}
 			
 			else {
@@ -90,13 +92,13 @@ public class explore implements ActionListener{
 			}
 		}
 		
-		else if (num1 == 4) {
-			if(num2 >5) {
+		else if (monsterlb.getIcon() == imgm3) {
+			if(num > 3) {
 				showMessageDialog(null, "You destroy the sea monster, congratulations!");
 			}
 			
 			else {
-			showMessageDialog(null, "The sea monster destroy you, you lost!");
+			showMessageDialog(null, "The Shark-man destroy you, you lost!");
 			}
 		}
 		
