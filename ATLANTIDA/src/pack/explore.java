@@ -21,8 +21,9 @@ public class explore implements ActionListener{
     static ImageIcon imgm2 = new ImageIcon("monster2.png");
     static ImageIcon imgm3 = new ImageIcon("monster3.png");
     public static JButton buttonhit;
-    
-	public explore() {
+    public static JButton buttonrun;
+	
+    public explore() {
 		init2();
 		
 	}
@@ -49,6 +50,16 @@ public class explore implements ActionListener{
 		buttonhit = new JButton("Hit");
 		buttonhit.addActionListener(this);
 		
+		buttonrun = new JButton("Run");
+		buttonrun.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Frame.switch_the_scene();
+				
+			}
+			
+		});
 	}
 	
 	public static void showMonster() {
@@ -65,7 +76,7 @@ public class explore implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		//the different situations in the game!
+		//the different situations in the battles!
 		
         int num = (int) (Math.random() * 9 + 1);
 		
@@ -102,12 +113,13 @@ public class explore implements ActionListener{
 			}
 		}
 		
-		else {
-			showMessageDialog(null, "other, not completed yet....");
-		}
-		
+		Frame.switch_the_scene();
+		 
 	}
 		
 	}
+
+
+
 
 
