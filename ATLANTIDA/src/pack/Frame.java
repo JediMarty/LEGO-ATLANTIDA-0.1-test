@@ -9,24 +9,22 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-
 import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
 import javax.swing.Timer;
 
 
 public class Frame{
 	
+	public static JFrame frame = new JFrame();
 	public static ImageIcon bg = new ImageIcon("darkrain.jpg");
 	JPanel gamepanel1 = new JPanel();
 	JPanel gamepanel2 = new JPanel();
-	JPanel cardPanel = new JPanel(new CardLayout());
-	public static JFrame frame = new JFrame();
+	public static JPanel cardPanel = new JPanel(new CardLayout());
 	public boolean yes = false;
 	static int num_test = 1000;
 	JLabel Count_label;
@@ -145,6 +143,7 @@ public class Frame{
 	    
 	    //second set of components 
 	    explore d = new explore();
+	    gamepanel2.add(explore.buttonrun);
 	    gamepanel2.add(explore.buttonhit);
 	    gamepanel2.add(explore.unitlb);
 	    gamepanel2.add(explore.monsterlb);
@@ -154,6 +153,7 @@ public class Frame{
 	    explore.bg.setBounds(0, 0, 800, 800);
 	    explore.monsterlb.setBounds(10, 410, 500, 400);
 	    explore.buttonhit.setBounds(60, 100, 100, 50);
+	    explore.buttonrun.setBounds(180, 100, 100, 50);
 	    
 	    //Add second set of components
 	    cardPanel.add(gamepanel2);
@@ -267,14 +267,19 @@ public class Frame{
 		}
 	
 	};
+	public static void switch_the_scene() {
+		CardLayout cl = (CardLayout) (cardPanel.getLayout());
+		cl.next(cardPanel);
+		
+	}
 	
 	MouseListener click_expl = new MouseListener() {
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			CardLayout cl = (CardLayout) (cardPanel.getLayout());
-			cl.next(cardPanel);
+			switch_the_scene();
 			explore.showMonster();
+			
 		}
 
 		@Override
@@ -344,8 +349,5 @@ public class Frame{
 		Count_label.setText(String.valueOf(num_test));
 	}
 	
-
 	
 }
-
-
