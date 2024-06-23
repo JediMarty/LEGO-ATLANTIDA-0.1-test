@@ -5,7 +5,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
-
 import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -84,10 +83,12 @@ public class explore implements ActionListener{
 			
 			if(num > 5) {
 				showMessageDialog(null, "You destroy the sea monster, congratulations!");
+				Frame.Count_label.setText(String.valueOf(Frame.sum_resources += 500));
 			}
 			
 			else {
 			showMessageDialog(null, "The sea monster destroy you, you lost!");
+			Frame.Count_label.setText(String.valueOf(Frame.sum_resources -= 1000));
 			}
 			
 		}
@@ -96,20 +97,24 @@ public class explore implements ActionListener{
 			
 			if(num > 3) {
 				showMessageDialog(null, "You destroy the Manta Warrior, congratulations!");
+				Frame.Count_label.setText(String.valueOf(Frame.sum_resources += 200));
 			}
 			
 			else {
 			showMessageDialog(null, "The sea monster destroy you, you lost!");
+			Frame.Count_label.setText(String.valueOf(Frame.sum_resources -= 200));
 			}
 		}
 		
 		else if (monsterlb.getIcon() == imgm3) {
 			if(num > 3) {
 				showMessageDialog(null, "You destroy the sea monster, congratulations!");
+				Frame.Count_label.setText(String.valueOf(Frame.sum_resources += 100));
 			}
 			
 			else {
 			showMessageDialog(null, "The Shark-man destroy you, you lost!");
+			Frame.Count_label.setText(String.valueOf(Frame.sum_resources -= 100));
 			}
 		}
 		
@@ -118,8 +123,6 @@ public class explore implements ActionListener{
 	}
 		
 	}
-
-
 
 
 
