@@ -1,5 +1,6 @@
 package pack;
 
+import static javax.swing.JOptionPane.showMessageDialog;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Cursor;
@@ -26,8 +27,8 @@ public class Frame{
 	JPanel gamepanel2 = new JPanel();
 	public static JPanel cardPanel = new JPanel(new CardLayout());
 	public boolean yes = false;
-	static int num_test = 1000;
-	JLabel Count_label;
+	public static int sum_resources = 1000;
+	public static JLabel Count_label;
 	JButton bbase;
 	JButton br;
 	JPanel panel;
@@ -60,7 +61,7 @@ public class Frame{
 		labelbg.setIcon(bg);
 	    labelbg.setBounds(0,0,800,800);
 	    
-		Count_label.setText(String.valueOf(num_test));
+		Count_label.setText(String.valueOf(sum_resources));
 	    Count_label.setForeground(Color.WHITE);
 	    Count_label.setFont(new Font("MV Boli",Font.BOLD,30));
 	    Count_label.setVerticalAlignment(JLabel.TOP);
@@ -203,7 +204,7 @@ public class Frame{
 				
 			}
 			i = 0;
-			resource-=1;
+			resource-=1; 
 		}
 
 		@Override
@@ -270,7 +271,7 @@ public class Frame{
 	public static void switch_the_scene() {
 		CardLayout cl = (CardLayout) (cardPanel.getLayout());
 		cl.next(cardPanel);
-		
+		Frame.check_for_loss();
 	}
 	
 	MouseListener click_expl = new MouseListener() {
@@ -345,9 +346,26 @@ public class Frame{
 	
 	public void resources() {
 		
-		num_test +=10;
-		Count_label.setText(String.valueOf(num_test));
+		sum_resources +=10;
+		Count_label.setText(String.valueOf(sum_resources));
 	}
 	
+	static void check_for_loss() {
+		
+		if (sum_resources == 0) {
+			showMessageDialog(null, "You lost the GAME!");
+			reset();
+			Frame.frame.dispose();
+		    
+			new Menu();
+			
+			
+		}
+	}
+	
+	public static void reset() {
+		Count_label.setText(String.valueOf(sum_resources=1000));
+	}
 	
 }
+
