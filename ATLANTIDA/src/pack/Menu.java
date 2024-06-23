@@ -48,7 +48,6 @@ public class Menu implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		
 		if (e.getSource() == PlayButton) {
-			x = 1;
 			Menu.framemenu.dispose();
 			new Frame();
 		}
